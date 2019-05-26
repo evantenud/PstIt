@@ -53,3 +53,13 @@ function checkUser(){
 	Users.includes("Tatjana");
 }
 	
+const mysql = require('mysql');
+const connection = mysql.createConnection({
+	host: "localhost",
+	user: "evantenud",
+	password: "1234"
+});
+connection.connect(function(error) {
+	if (error) throw error;
+	console.log("Connected!")
+});
