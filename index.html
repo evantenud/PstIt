@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<title>PSTIT</title>
+</head>
+<body id = "body_starter">
+	<div id = "layout_container">
+		<div class = "pages navbar" id = "homeNav">
+			<a href = "#home" class = "navText">Login</a>
+		</div>
+		<div class = "pages navbar" id="aboutNav">
+			<a href = "#about" class = "navText">Our mission</a>
+		</div>
+		<div class = "pages navbar" id = "principleNav">
+			<a href = "#principle" class = "navText">Our princles</a>
+		</div>
+		<div id = "home" class = "pages first">
+			<div id = "starter_container">
+				<h1 id = "title_starter">PstIt</h1>
+				<h3 id = "subtitle_starter">PstIt is the place on the internet to express yourself.</h3>
+				<form id = "hiddenForm">
+					Email: <input id = "signInEmail" type = "email" name = "emailAdress"><br>
+					Password: <input id = "signInPassword" type="password" name= "Password"><br>
+					<input id = "submitButtonSignIn" type="submit" name="Submit">
+				</form> 
+				<form id = "hiddenRegisterForm">
+					Name : <input id = "registerName" type="text" name="name"><br>
+					Username: <input id = "registerUsername" type="text" name="username"><br>
+					Email: <input id = "registerEmail" type="email" name="email"><br>
+					Password: <input id = "registerPassword" type="password" name="Password"><br>
+					<input id = "submitButtonRegister" type="submit" name="Submit">
+				</form>
+				<button id = "signInButton">Sign In</button>
+				<button id = "signUpButton">Register</button>
+			</div>
+		</div>
+		<div id = "about" class = "pages second">
+			<h2 id = "aboutTitle">Our mission</h2>
+			<img src="pictures/1.jpg" class = pictures>
+			<img src="pictures/2.jpg" class = pictures>
+			<img src="pictures/3.jpg" class = pictures>
+			<img src="pictures/4.jpg" class = pictures>
+			<img src="pictures/5.jpg" class = pictures>
+			<p id = "aboutText">We are a collective of young people who want to give a place to people to express themselves. We stand for freedom of speech but in a respectful way. But to gurantee this we need your help. Report posts that could be harmful to someone or discriminate minorities. This should be more of a community than anything else.</p>
+		</div>
+		<div id = "principle">
+			<h2 id = "principleTitle">How does it work?</h2>
+			<p id = "principleText">As soon as you sign in you get to create your room as we call it. This is a space where all your posts are as well as your collections. The room is structured as followed: First of all you have your posters - those are the accounts and hashtags you love and admire. You'll have the most important info of your timeline in one space. Then there are are your collecctions - these are like folders where you can store all kinds of posts and keep your room organized. Then there's your desk, where you'll be able to see all your posts and create new ones of course. At the bottom of the page you'll see your picture frames. That's where your most popular posts are situated.</p>
+		</div>
+	</div>
+	<div id = "endPage">
+		<h2 id = "EndText">So, what are you waiting for? Get an account and start showing the world your true colors</h2>
+	</div>
+</body>
+<script type="text/javascript">
+	const registerButton = document.getElementById("signUpButton");
+	const signInButton = document.getElementById("signInButton");
+	const subtitleStarter = document.getElementById("subtitle_starter");
+	const hiddenForm = document.getElementById("hiddenForm");
+	const hiddenRegisterForm = document.getElementById("hiddenRegisterForm");
+	const submitButtonRegister = document.getElementById("submitButtonRegister");
+	const submitButtonSignIn = document.getElementById("submitButtonSignIn");
+	const email = document.getElementById("signInEmail").value;
+	const password = document.getElementById("signInPassword").value;
+	const newUserName = document.getElementById("registerName").value;
+	const newUserUsername = document.getElementById("registerUsername").value;
+	const newUserEmail = document.getElementById("registerEmail").value;
+	const newUserPassword = document.getElementById("registerPassword").value;
+	const Users = [];
+	class User {
+		constructor(name, username, email, password){
+			this.name = name;
+			this.username = username; 
+			this.email = email;
+			this.password = password;
+		}
+
+	}
+	const userIndex = Users.lenght - 1;
+	
+
+	let newUser = new User(newUserName, newUserUsername, newUserEmail, newUserPassword);
+
+	signInButton.addEventListener("click", buttonClicked);
+	registerButton.addEventListener("click", register);
+	submitButtonRegister.addEventListener("click", addUser);
+	submitButtonSignIn.addEventListener("click", checkUser);
+	function hideButtons(){
+		subtitleStarter.style.display = "none";
+		signInButton.style.display = "none";
+		registerButton.style.display = "none";
+	}
+	function buttonClicked(){
+		hideButtons();
+		hiddenForm.style.display = "block";
+	}
+	function register(){
+		hideButtons();
+		hiddenRegisterForm.style.display = "block";
+	}
+
+	function addUser(){
+		if(newUserName !== "" && newUserUsername !== "" && newUserEmail !== "" && newUserPassword !== ""){
+			Users[userIndex] = newUser;
+
+			}else{
+				alert("users", newUser);
+		}
+	}
+	function checkUser(){
+		Users.includes("Tatjana");
+	}
+	
+	
+</script>
+</html>
